@@ -1,0 +1,36 @@
+
+## Requirements
+
+### Python environment
+
+All modules require **Python 3.9 or later** and have been tested on Python 3.12.9.
+
+### PySpark and cluster
+
+The three `.py` modules are PySpark modules designed to run on a distributed Spark
+cluster. The benchmark notebooks were executed on an **AWS EMR** cluster with the
+following configuration:
+
+- 1 primary instance: `c8gd.xlarge`
+- 10 core instances: `c8gd.48xlarge` (192 vCores, 366 GB RAM each)
+- Total vCores available for PySpark tasks: 1,920
+
+A local PySpark installation (e.g. via `pip install pyspark`) is sufficient to run
+the modules on a single machine at small dataset sizes for testing purposes.
+
+### Python package dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `pyspark` | Distributed computing framework |
+| `numpy` | Array arithmetic, Chebyshev transforms |
+| `pandas` | Result accumulation and Parquet I/O |
+| `pyarrow` | Parquet file reading (required by pandas) |
+
+Install with:
+
+```bash
+pip install pyspark numpy pandas pyarrow
+```
+
+
